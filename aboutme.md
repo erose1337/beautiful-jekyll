@@ -1,16 +1,37 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Who in the world am I?
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Ella Rose. I have some skill in the following subjects:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- Computer programming/software devlopment 
+  - 5 years of experience
+  - I developed my own [application framework in python](https://github.com/erose1337/pride) that provides apis for audio, gui, networking, database, and security 
+- Cryptography (2.5 years experience)
+  - Extensive experience with [algorithm design and analysis](https://github.com/erose1337/crypto), including symmetric and asymmetric algorithms
+- Cooking (10+ years experience)
+- Music (10+ years experience)
+  - I have [my own compositions](https://www.bitchute.com/video/Nmptt4DaC4vq/) of varying genres that I play on guitar
+  
+Additionally, I have many interests that I enjoy researching and reading about:
 
-What else do you need?
+- Technology
+- History
+- Physics
+- Psychology
+
+As well as some subjects that I would love to develop skill with, instead of just reading about:
+
+- Digital Signal Processing (DSP)
+- Machine Learning
+- FPGA/hardware development
+
+I am a top user on [crypto.stackexchange](https://crypto.stackexchange.com/users/29554/ella-rose)
+
+I am interesting in freelancing and consultation, as well as full-time employment for the right kind of work.
 
 ### my history
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+A can of worms that I have yet to open...
