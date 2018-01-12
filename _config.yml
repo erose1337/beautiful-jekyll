@@ -25,9 +25,9 @@ description: About me and the things that I do
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
+    - Stackexchange account: "https://crypto.stackexchange.com/users/29554/ella-rose?tab=profile"
+    - Github: "https://github.com/erose1337"
+    - Email: "python_pride@protonmail.com"
   Author's home: "http://erose1337.github.io"
 
 # Image to show in the navigation bar - image must be a square (width = height)
