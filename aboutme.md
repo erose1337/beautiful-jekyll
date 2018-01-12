@@ -33,7 +33,7 @@ As well as some subjects that I would love to develop skill with, instead of jus
 
 I am a top user on [crypto.stackexchange](https://crypto.stackexchange.com/users/29554/ella-rose)
 
-I am interesting in freelancing and consultation, as well as full-time employment for the right kind of work.
+I am [interested in freelancing and consultation, and full-time employment](https://stackoverflow.com/users/story/3103584) for the right kind of work.
 
 ### my history
 
