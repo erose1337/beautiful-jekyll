@@ -35,6 +35,8 @@ I am a top user on [crypto.stackexchange](https://crypto.stackexchange.com/users
 
 I am [interested in freelancing, consultation, and full-time employment](https://stackoverflow.com/users/story/3103584) for the right kind of work.
 
+You can add me on [keybase](https://stackoverflow.com/users/story/3103584) if you are so inclined.
+
 ### my history
 
 A can of worms that I have yet to open...
