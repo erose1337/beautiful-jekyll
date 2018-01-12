@@ -4,7 +4,11 @@ title: About me
 subtitle: Who in the world am I?
 ---
 
-My name is Ella Rose. I am an expeditious learner and an information sponge. I have some skill in the following subjects:
+My name is Ella Rose. I am a fast learner who's always keen to pick up new technologies and concepts. 
+
+I am a top user on the [Cryptography Stack Exchange](https://crypto.stackexchange.com/users/29554/ella-rose) site with over 100 answers and over 100,000 visitors reached.
+
+I have some skill in the following subjects:
 
 - Computer programming/software devlopment 
   - 5 years of experience
@@ -30,8 +34,6 @@ As well as some subjects that I would love to develop skill with, instead of jus
 - Digital Signal Processing (DSP)
 - Machine Learning
 - FPGA/hardware development
-
-I am a top user on [crypto.stackexchange](https://crypto.stackexchange.com/users/29554/ella-rose)
 
 I am [interested in freelancing, consultation, and full-time employment](https://stackoverflow.com/users/story/3103584) for the right kind of work.
 
