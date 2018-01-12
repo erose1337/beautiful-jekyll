@@ -4,7 +4,7 @@ title: About me
 subtitle: Who in the world am I?
 ---
 
-An expeditious learner and an information sponge, my name is Ella Rose. I have some skill in the following subjects:
+My name is Ella Rose. I am an expeditious learner and an information sponge. I have some skill in the following subjects:
 
 - Computer programming/software devlopment 
   - 5 years of experience
