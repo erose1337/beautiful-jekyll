@@ -6,6 +6,11 @@
 #            site.social-network-links.<key>
 #   icon: Specify a valid fontawesome icon class
 
+stackexchange:
+  name: "Stackexchange"
+  baseURL: "https://crypto.stackexchange.com/"
+  icon: "fa-stack-overflow"
+  
 facebook:
   name: "Facebook"
   baseURL: "https://www.facebook.com/"
