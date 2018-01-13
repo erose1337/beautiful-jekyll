@@ -33,7 +33,7 @@ As well as some subjects that I would love to develop skill with, instead of jus
 
 - Digital Signal Processing (DSP)
 - Machine Learning
-- FPGA/hardware development
+- FPGA/Hardware Development
 
 I am [interested in freelancing, consultation, and full-time employment](https://stackoverflow.com/users/story/3103584) for the right kind of work.
 
