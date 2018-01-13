@@ -64,7 +64,7 @@ footer-link-col: "#404040"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Some Person
+  name: Ella Rose
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -80,7 +80,7 @@ social-network-links:
 #  google-plus: +DeanAttali
 #  linkedin: daattali
 #  xing: yourname
-  stackoverflow: "3103584/ella-rose"
+  crypto.stackexchange: "users/29554/ella-rose"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  youtube: user/deanat78
