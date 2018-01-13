@@ -10,7 +10,7 @@ I am a top user on the [Cryptography Stack Exchange](https://crypto.stackexchang
 
 I have some skill in the following subjects:
 
-- Computer programming/software devlopment 
+- Computer programming/software development 
   - 5 years of experience
   - I developed my own [application framework in python](https://github.com/erose1337/pride) that provides apis for audio, gui, networking, database, and security 
 - Cryptography
