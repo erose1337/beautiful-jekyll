@@ -1,6 +1,8 @@
 This is my first real post to the site. Hooray!
 
-Inverting $ax + y mod q$
+Note: To view this post the way it was intended to be viewed, activate chatjax/mathjax: http://www.math.ucla.edu/~robjohn/math/mathjax.html (bookmark the "activate" links, then use those bookmarks from this page to make the math render properly)
+
+Inverting $ax + y \bmod q$
 -------
 Let $a = 3$, $q = 11$
 
