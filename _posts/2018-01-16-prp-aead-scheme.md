@@ -8,7 +8,9 @@ AEAD schemes are a trendy topic due to a few reasons:
 - There are multiple possible configurations, and they have all been employed in one place or another. Quoting the answer by the user M.S. Dousti:
     
     Encrypt then Authenticate (EtA) used in IPsec;
+    
     Authenticate then Encrypt (AtE) used in SSL;
+    
     Encrypt and Authenticate (E&A) used in SSH.
     
 These assume that you are using either a block cipher based mode of operation to encrypt, or a stream cipher. A block cipher is usually more versatile than a stream cipher.
