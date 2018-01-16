@@ -2,6 +2,8 @@ This is my first real post to the site. Hooray!
 
 Note: To view this post the way it was intended to be viewed, activate chatjax/mathjax. [Bookmark](http://www.math.ucla.edu/~robjohn/math/mathjax.html) the "activate" links, then use those bookmarks from this page to make the math render properly.
 
+Disclaimer: My random musings should not be interpreted as assertions of fact!
+
 Inverting $a * x + y \bmod q$
 -------
 Let $a = 3$, $q = 11$
