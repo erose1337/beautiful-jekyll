@@ -24,9 +24,10 @@ Given $a, q, a * x \bmod q$, clearly if $x < q$, then recovery of $x$ is trivial
 
 Similarly, given $a, q, a + y \bmod q$, with $y < q$, recover of $y$ is again trivial. 
 
-For a concrete example, if $a * x \bmod q == 5$ and $x < q$, then clearly $x = 9$. Checking the work demonstrates that $3 * 9 \bmod 11 = 5$
+For a concrete example, if $a * x \bmod q = 5$ and $x < q$, then clearly $x = 9$. Checking the work demonstrates that $3 * 9 \bmod 11 = 5$
 
 When $x > q$, it is clearly not so trivial to recover the value of $x$; Only the residue of $x \bmod q$ will be recovered.
+
 Similarly, when $y > q$, then it is clearly not so trivial to recover $y$; Only the residue of $y \bmod q$ will be recovered.
 
 Now, consider the case of $(a * x) + y \bmod q$. 
