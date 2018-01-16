@@ -38,5 +38,5 @@ If $x <= 3$, and $y <= 2$, then all elements of the sequence may be reached via 
 
 My interest is in what happens when $x >= 3$ and/or $y >= 2$ - when the value wraps around all of the way, it appears to become non-trivial (or at least, less trivial) to recover the values of $x, y$.
 
-When $\log(x) + \log(y) > \log(q)$, it appears to become more difficult to recover the value of $x, y$ when given $a, q, ax + y \mod q$.
+When $\log(x) + \log(y) > \log(q)$, it appears to become more difficult to recover the value of $x, y$ when given $a, q, ax + y mod q$.
 
