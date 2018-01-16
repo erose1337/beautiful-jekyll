@@ -2,7 +2,7 @@ This is my first real post to the site. Hooray!
 
 Note: To view this post the way it was intended to be viewed, activate chatjax/mathjax. [Bookmark](http://www.math.ucla.edu/~robjohn/math/mathjax.html) the "activate" links, then use those bookmarks from this page to make the math render properly.
 
-Inverting $ax + y \bmod q$
+Inverting $a * x + y \bmod q$
 -------
 Let $a = 3$, $q = 11$
 
@@ -38,5 +38,5 @@ If $x <= 3$, and $y <= 2$, then all elements of the sequence may be reached via 
 
 My interest is in what happens when $x >= 3$ and/or $y >= 2$ - when the value wraps around all of the way, it appears to become non-trivial (or at least, less trivial) to recover the values of $x, y$.
 
-When $\log(x) + \log(y) > \log(q)$, it appears to become more difficult to recover the value of $x, y$ when given $a, q, ax + y \mod q$.
+When $\log(x) + \log(y) > \log(q)$, it appears to become more difficult to recover the value of $x, y$ when given $a, q, a * x + y \mod q$.
 
