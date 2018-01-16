@@ -56,7 +56,7 @@ Instead of using a traditional key alternating cipher, we are going to encrypt d
 
 On to the design:
 
-- ![permutation based encryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpencryption.png)
+![permutation based encryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpencryption.png)
 
 First, a random key is generated for use as an initialization vector. Then, the first block of the plaintext is loaded into the left half of the PRP, while the key is loaded into the right half of the PRP. The PRP is then applied, and the output is split into two blocks. The left half is output as the first ciphertext block, while the right half is output as a psuedorandom key to be used to encrypt the next block in the same manner. After all of the plaintext has been processed, the final psuedorandom key is locked via exclusive-or with the master key. The left half and right half are analogous to the rate and capacity of the sponge function. They could probably be referred to as such.
 
