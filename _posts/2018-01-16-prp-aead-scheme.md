@@ -1,5 +1,3 @@
-PRP AEAD
-------
 For post #2, I will be talking about a psueodo random permutation (PRP) based authenticated encryption with associated data (AEAD) scheme. This is mostly an excuse to practice including images into my posts.
 
 The motivation
