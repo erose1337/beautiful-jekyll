@@ -56,7 +56,7 @@ Instead of using a traditional key alternating cipher, we are going to encrypt d
 
 On to the design:
 
-![permutation based encryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpencryption.png)
+- ![permutation based encryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpencryption.png)
 
 First, a random key is generated for use as an initialization vector. Then, the first block of the plaintext is loaded into the left half of the PRP, while the key is loaded into the right half of the PRP. The PRP is then applied, and the output is split into two blocks. The left half is output as the first ciphertext block, while the right half is output as a psuedorandom key to be used to encrypt the next block in the same manner. After all of the plaintext has been processed, the final psuedorandom key is locked via exclusive-or with the master key. The left half and right half are analogous to the rate and capacity of the sponge function. They could probably be referred to as such.
 
@@ -72,7 +72,7 @@ That's not to say that there are no downsides at all:
 
 For the sake of completeness, here is the decryption algorithm:
 
-![permutation based decryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpdecryption.png)
+- ![permutation based decryption algorithm](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpdecryption.png)
 
 AEAD algorithm
 ----
@@ -80,7 +80,7 @@ You might be wondering where the authentication comes into play. Don't worry, we
 
 Consider what would happen if an adversary flipped some ciphertext bits, and then the decryption process is applied. Clearly, due to the diffusion caused by the PRP, any blocks to the left of the ones that are modified will become corrupted. As a result, so will the initial random key. We can use that key for a MAC as well, and use that tag to authenticate all of the information. Since we're processing a MAC, this provides an entry point to include some non-encrypted associated data.
 
-![permutation based AEAD encryption](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmooe.png)
+- ![permutation based AEAD encryption](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmooe.png)
 
 Wow, that was easy! We just tacked on a MAC to the beginning and it took care of authentication and integrity for us. There are a few advantages to this authentication technique:
 - The MAC can be processed in parallel during the encryption process
@@ -93,7 +93,7 @@ So encryption could be made blazingly fast, but decryption will necessarily be a
 
 For the sake of completness again, here is the corresponding decryption algorithm:
 
-![permutation based AEAD decryption](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmood.png)
+- ![permutation based AEAD decryption](https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmood.png)
 
 Failure and repeated values
 -------
