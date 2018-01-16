@@ -1,6 +1,6 @@
 This is my first real post to the site. Hooray!
 
-Note: To view this post the way it was intended to be viewed, [activate chatjax/mathjax](http://www.math.ucla.edu/~robjohn/math/mathjax.html) (bookmark the "activate" links, then use those bookmarks from this page to make the math render properly)
+Note: To view this post the way it was intended to be viewed, [activate chatjax/mathjax](javascript:(function(){if(window.MathJax===undefined){var%20script%20=%20document.createElement("script");script.type%20=%20"text/javascript";script.src%20=%20"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML";var%20config%20=%20%27MathJax.Hub.Config({%27%20+%20%27extensions:%20["tex2jax.js"],%27%20+%20%27tex2jax:%20{%20inlineMath:%20[["$","$"],["\\\\\\\\\\\\(","\\\\\\\\\\\\)"]],%20displayMath:%20[["$$","$$"],["\\\\[","\\\\]"]],%20processEscapes:%20true%20},%27%20+%20%27jax:%20["input/TeX","output/HTML-CSS"]%27%20+%20%27});%27%20+%20%27MathJax.Hub.Startup.onload();%27;if%20(window.opera)%20{script.innerHTML%20=%20config}%20else%20{script.text%20=%20config}%20document.getElementsByTagName("head")[0].appendChild(script);(doChatJax=function(){window.setTimeout(doChatJax,1000);MathJax.Hub.Queue(["Typeset",MathJax.Hub]);})();}else{MathJax.Hub.Queue(["Typeset",MathJax.Hub]);}})();) (You can also [bookmark](http://www.math.ucla.edu/~robjohn/math/mathjax.html) the "activate" links, then use those bookmarks from this page to make the math render properly)
 
 Inverting $ax + y \bmod q$
 -------
