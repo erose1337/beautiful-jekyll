@@ -4,7 +4,7 @@ Note: To view this post the way it was intended to be viewed, activate chatjax/m
 
 Disclaimer: My random musings should not be interpreted as assertions of fact!
 
-Inverting <span>$a * x + y \bmod q$</span>
+Inverting $$a * x + y \bmod q$$
 -------
 Let $a = 3$, $q = 11$
 
