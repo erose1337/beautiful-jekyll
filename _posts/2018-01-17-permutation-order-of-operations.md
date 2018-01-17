@@ -20,9 +20,9 @@ The important questions are: How should constants be generated, and when should 
     
 The Source and Application of Constant Values  
 -----  
-When examining an implementation of a permutation, it becomes easy to see that round constants occupy extra space. Extra space does not necessarily mean memory, but it does necessarily means registers. There are really two options: dedicate a register to round constants and update them in place, or perform a MOV every round to load constants from memory. Due to the relatively simplistic design of most permutations, MOV instructions can quickly become the limiting factor in the efficiency of the algorithm. Where possible it is better to keep the constants loaded in a register, and apply instructions to the register to advance the value of the constants in place.
+When examining an implementation of a permutation, it becomes easy to see that round constants occupy extra space. Extra space does not necessarily mean memory, but it does necessarily mean registers. There are really two options: dedicate a register to round constants and update them in place, or perform a MOV every round to load constants from memory. Due to the relatively simplistic design of most permutations, MOV instructions can quickly become the limiting factor in the efficiency of the algorithm. Where possible it is better to keep the constants loaded in a register, and apply instructions to the register to advance the value of the constants in place.
 
-- the extra space required by constants implies the need for more MOV instructions
+- the extra space required by constants can imply the need for more MOV instructions
 - lots of MOV operations (especially into SIMD registers) can eat into CPU budget quickly and reduce throughput and latency
 
 Round constants are usually chosen somewhat arbitrarily, in a manner that makes it at least plausible that they do not provide a backdoor. This post advocates the following manner to generate constants:
@@ -90,49 +90,49 @@ Arguably, the least ideal order of operations is the reverse:
 Admittedly, some of these arguments break down as soon as the second round is applied. For example, even if the constants were added last in round 1, the linear layer of round 2 will be applied to them. However, if the two designs are compared side-by-side and round-for-round, the recommended order of operations should produce clearly superior output. This may be more obvious by looking at the equations that represent the cipher, which are not too complex to view after only 1 round. Each bit of the state can be seen as the combination of XOR/AND of other bits in the state. Consider the following, using example layers that are not ideal, but serve to illustrate the point:
 
 - With the supposedly optimal order, given input bits a, b, c, d, and round constants w, x, y, z:
-    - First, xor in the round constants (and update them, which is not shown)
-        - State: 
-            - a ^ w
-            - b ^ x
-            - c ^ y
-            - d ^ z
+    - First, xor in the round constants (and update them, which is not shown)        
+        - `a ^ w`
+        - `b ^ x`
+        - `c ^ y`
+        - `d ^ z`
     - Second, apply the linear layer
-        - a ^ w ^ b ^ x 
-        - b ^ x ^ c ^ y 
-        - c ^ y ^ d ^ z
-        - d ^ z ^ a ^ w
+        - `a ^ w ^ b ^ x` 
+        - `b ^ x ^ c ^ y` 
+        - `c ^ y ^ d ^ z`
+        - `d ^ z ^ a ^ w`
     - Third, apply the non-linear layer
-        - (a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)
-        - (b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)
-        - (c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)
-        - (d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)
+        - `(a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)`
+        - `(b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)`
+        - `(c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)`
+        - `(d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)`
         
 - With the supposedly sub-optimal order, given input bits a, b, c, d, and round constants w, x, y, z:
     - First, apply the non-linear layer
-        - a & c
-        - b & d
-        - c & b
-        - d & a
+        - `a & c`
+        - `b & d`
+        - `c & b`
+        - `d & a`
     - Second, apply the linear layer:
-        - (a & c) ^ (b & d)
-        - (b & d) ^ (c & b)
-        - (c & b) ^ (d & a)
-        - (d & a) ^ (a & c)
+        - `(a & c) ^ (b & d)`
+        - `(b & d) ^ (c & b)`
+        - `(c & b) ^ (d & a)`
+        - `(d & a) ^ (a & c)`
     - Third, apply the constants:
-        - (a & c) ^ (b & d) ^ w
-        - (b & d) ^ (c & b) ^ x
-        - (c & b) ^ (d & a) ^ y
-        - (d & a) ^ (a & c) ^ z
+        - `(a & c) ^ (b & d) ^ w`
+        - `(b & d) ^ (c & b) ^ x`
+        - `(c & b) ^ (d & a) ^ y`
+        - `(d & a) ^ (a & c) ^ z`
         
 Now, examining the two results side-by side (or rather, top and bottom for formatting purposes):
-- (a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)
-- (b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)
-- (c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)
-- (d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)         
+- `(a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)`
+- `(b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)`
+- `(c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)`
+- `(d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)`         
 
-- (a & c) ^ (b & d) ^ w
-- (b & d) ^ (c & b) ^ x
-- (c & b) ^ (d & a) ^ y
-- (d & a) ^ (a & c) ^ z    
+
+- `(a & c) ^ (b & d) ^ w`
+- `(b & d) ^ (c & b) ^ x`
+- `(c & b) ^ (d & a) ^ y`
+- `(d & a) ^ (a & c) ^ z`   
     
 The first set of equations certainly looks more complicated, as it includes twice as many terms in between each AND operation. That `^ w` at the end of the second set of equations doesn't appear to really do much - supposing we were limited to one round, it would be trivial to peel those constants off. 
