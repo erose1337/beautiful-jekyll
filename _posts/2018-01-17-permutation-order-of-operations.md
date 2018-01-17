@@ -126,6 +126,7 @@ Admittedly, some of these arguments break down as soon as the second round is ap
         - `(d & a) ^ (a & c) ^ z`
         
 Now, examining the two results side-by side (or rather, top and bottom for formatting purposes):
+
 - `(a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)`
 - `(b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)`
 - `(c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)`
