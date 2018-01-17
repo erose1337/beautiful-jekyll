@@ -62,8 +62,8 @@ First, a random key is generated for use as an initialization vector. Then, the 
 
 There are a few advantages to this construction. 
 - First, no block cipher is needed - only a PRP is required. This may seem like a small advantage, but implementation complexity adds up
-- Secondly, the key that is used to process the data is processed by the full randomizing power of the PRP, instead of an ad-hoc weak key schedule
-- Third, the master key is only ever used on the output of a PRP, which implies that it is equivalent to a psuedorandom block being xor-ed with a random key
+- Second, the key that is used to process the data is processed by the full randomizing power of the PRP, instead of an ad-hoc weaker key schedule. 
+- Third, the master key is only ever used on the output of a PRP. 
 
 Assuming that the initial random key is generated correctly and uniquely for each message, this design appears solid as a rock, at least as far as confidentiality of the message and security of the master key is concerned. 
 
@@ -78,9 +78,9 @@ AEAD algorithm
 ----
 You might be wondering where the authentication comes into play. Don't worry, we're not done yet!
 
-Consider what would happen if an adversary flipped some ciphertext bits, and then the decryption process is applied. Clearly, due to the diffusion caused by the PRP, any blocks to the left of the ones that are modified will become corrupted. As a result, so will the initial random key. We can use that key for a MAC as well, and use that tag to authenticate all of the information. Since we're processing a MAC, this provides an entry point to include some non-encrypted associated data.
+Consider what would happen if an adversary flipped some ciphertext bits, and then the decryption process is applied. Clearly, due to the diffusion caused by the PRP, any blocks to the left of the blocks that are modified will become corrupted. As a result, so will the initial random key. We can use that key for a MAC as well, and use that tag to authenticate all of the information. Since we're processing a MAC, this provides an entry point to include some non-encrypted associated data.
 
-- ![permutation based AEAD encryption]({{ "/img/prpmooe.png" | https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmooe.png }})
+![permutation based AEAD encryption]({{ "/img/prpmooe.png" | https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmooe.png }})
 
 Wow, that was easy! We just tacked on a MAC to the beginning and it took care of authentication and integrity for us. There are a few advantages to this authentication technique:
 - The MAC can be processed in parallel during the encryption process
@@ -93,22 +93,22 @@ So encryption could be made blazingly fast, but decryption will necessarily be a
 
 For the sake of completness again, here is the corresponding decryption algorithm:
 
-- ![permutation based AEAD decryption]({{ "/img/prpmood.png" | https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmood.png }})
+![permutation based AEAD decryption]({{ "/img/prpmood.png" | https://github.com/erose1337/erose1337.github.io/blob/master/img/prpmood.png }})
 
 Failure and repeated values
 -------
 Note: In this section, "the key" refers to the randomly generated encryption key, and not to the master key.
 
-The worst case failure is when both a key, message, and associated data are all repeated. In this case, the cryptograms will be equivalent. No scheme can prevent this when all inputs are identical, so the scheme fares no worse then others in this regard.
+The worst case failure is when both a key, message, and associated data are all repeated. In this case, the cryptograms will be equivalent. No scheme can prevent this when all inputs are identical, so the scheme fares no worse than others in this regard.
 
-In the case that a key and message are repeated but the associated data changes, the tag will still be unique. The ciphertext portion of the cryptograms will be identical. Confidentiality is partially breached in that an adversary may determine whether or not two ciphertexts encrypt the same message, but may not learn anything new about the message.
+In the case that a key and message are repeated but the associated data changes, the tag will still be unique. The ciphertext portion of the cryptograms will be identical. Confidentiality is partially breached in that an adversary may determine whether or not two ciphertexts encrypt the same message, but they may not learn anything new about the message.
 
-In the case that a key and associated data are repeated, The authentication tag will remain the same. However, it does not appear that this yields the ability to break authenticity/integrity - attempting to supply a modified ciphertext to the decryption algorithm will still cause the tag generated during decryption to be different than the correct tag. Perhaps this could be exploited to create an authenticated scheme with minimal ciphertext expansion by re-using the same tag for different ciphertexts.
+In the case that a key and associated data are repeated, the authentication tag will remain the same. However, it does not appear that this yields the ability to break authenticity/integrity - attempting to supply a modified ciphertext or associated data to the decryption algorithm will still cause the tag generated during decryption to be different than the correct tag. Perhaps this could be exploited to create an authenticated scheme with minimal ciphertext expansion by re-using the same tag for different ciphertexts.
 
 In the case that the message and associated data are repeated, but the key is properly generated, then the resultant cryptogram will unique.
 
 
 A nonce-misuse resistant variant
 -----
-If we are willing to forego some performance benefits, we can craft a fully deterministic nonce-misuse resistant scheme. This can be done by computing the MAC over the associated data and plaintext first, and then using the output as a source of entropy to encrypt the message. This is a pretty standard way to create a nonce-misuse resistant scheme. Plus, this post is a bit long already, and the parallel construction appears to fail relatively gracefully as-is, so I will save this idea for later.
+If we are willing to forego some performance benefits, we can craft a fully deterministic nonce-misuse resistant scheme. This can be done by computing the MAC over the associated data and plaintext first, and then using the output as a source of entropy to encrypt the message. This is pretty much the standard method to create a nonce-misuse resistant scheme. This post is a bit long already, and the parallel construction appears to fail relatively gracefully as-is, so I will save this idea for later.
 
