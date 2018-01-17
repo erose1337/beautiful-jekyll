@@ -1,5 +1,7 @@
 For post #2, I will be talking about a permutation based authenticated encryption with associated data (AEAD) scheme. This is mostly an excuse to practice including images into my posts.
 
+Standard disclaimer: This is not a formal research paper and should not be held to standards of rigorous unconditional correctness.
+
 The motivation
 ----
 AEAD schemes are a trendy topic due to a few reasons:
