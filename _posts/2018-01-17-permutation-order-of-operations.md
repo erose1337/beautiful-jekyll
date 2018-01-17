@@ -89,6 +89,8 @@ Arguably, the least ideal order of operations is the reverse:
 
 Admittedly, some of these arguments break down as soon as the second round is applied. For example, even if the constants were added last in round 1, the linear layer of round 2 will be applied to them. However, if the two designs are compared side-by-side and round-for-round, the recommended order of operations should produce clearly superior output. This may be more obvious by looking at the equations that represent the cipher, which are not too complex to view after only 1 round. Each bit of the state can be seen as the combination of XOR/AND of other bits in the state. Consider the following, using example layers that are not ideal, but serve to illustrate the point:
 
+(Note on notation: `a ^ b` indicates XOR, `a & b` indicates AND)
+
 - With the supposedly optimal order, given input bits a, b, c, d, and round constants w, x, y, z:
     - First, xor in the round constants (and update them, which is not shown)        
         - `a ^ w`
