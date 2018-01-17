@@ -5,7 +5,7 @@ The motivation
 AEAD schemes are a trendy topic due to a few reasons:
     
 - It is not necessarily obvious how to [combine a MAC and encryption](https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-encrypt-then-mac)
-- There are multiple possible configurations, and they have all been employed in one place or another. Quoting the answer by the user M.S. Dousti:
+- There are multiple possible configurations when combining a MAC and encryption , and they have all been employed in one place or another. Quoting the answer by the crypto.stackexchange user M.S. Dousti:
     
     Encrypt then Authenticate (EtA) used in IPsec;
     
