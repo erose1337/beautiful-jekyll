@@ -127,14 +127,14 @@ Admittedly, some of these arguments break down as soon as the second round is ap
         
 Now, examining the two results side-by side (or rather, top and bottom for formatting purposes):
 
-    `(a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)`
-    `(b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)`
-    `(c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)`
-    `(d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)`         
+    (a ^ w ^ b ^ x) & (c ^ y ^ d ^ z)
+    (b ^ x ^ c ^ y) & (d ^ z ^ a ^ w)
+    (c ^ y ^ d ^ z) & (b ^ x ^ c ^ y)
+    (d ^ z ^ a ^ w) & (a ^ w ^ b ^ x)         
     
-    `(a & c) ^ (b & d) ^ w`
-    `(b & d) ^ (c & b) ^ x`
-    `(c & b) ^ (d & a) ^ y`
-    `(d & a) ^ (a & c) ^ z`   
+    (a & c) ^ (b & d) ^ w
+    (b & d) ^ (c & b) ^ x
+    (c & b) ^ (d & a) ^ y
+    (d & a) ^ (a & c) ^ z
     
 The first set of equations certainly looks more complicated, as it includes twice as many terms in between each AND operation. That `^ w` at the end of the second set of equations doesn't appear to really do much - supposing we were limited to one round, it would be trivial to peel those constants off. 
