@@ -1,8 +1,8 @@
 Standard disclaimer: This is not a formal research paper and should not be held to standards of rigorous unconditional correctness. 
 
-The order of operations in a psuedorandom permutation
+The order of operations in a permutation
 -------
-The design of psuedorandom permutation generally consists of the following steps:
+The design of permutation generally consists of the following steps:
 - inclusion of round constants into the state    
 - application of an inexpensive linear operation 
 - application of an operation designed to add non-linearity
@@ -20,14 +20,14 @@ The important questions are: How should constants be generated, and when should 
     
 The Source and Application of Constant Values  
 -----  
-When examining an implementation of a psuedorandom permutation, it becomes easy to see that round constants occupy extra space. Extra space does not necessarily mean memory, but it does necessarily means registers. There are really two options: dedicate a register to round constants and update them in place, or perform a MOV every round to load constants from memory. Due to the relatively simplistic design of most PRPs, MOV instructions can quickly become the limiting factor in the efficiency of the algorithm. Where possible it is better to keep the constants loaded in a register, and apply instructions to the register to advance the value of the constants in place.
+When examining an implementation of a permutation, it becomes easy to see that round constants occupy extra space. Extra space does not necessarily mean memory, but it does necessarily means registers. There are really two options: dedicate a register to round constants and update them in place, or perform a MOV every round to load constants from memory. Due to the relatively simplistic design of most permutations, MOV instructions can quickly become the limiting factor in the efficiency of the algorithm. Where possible it is better to keep the constants loaded in a register, and apply instructions to the register to advance the value of the constants in place.
 
 - the extra space required by constants implies the need for more MOV instructions
 - lots of MOV operations (especially into SIMD registers) can eat into CPU budget quickly and reduce throughput and latency
 
 Round constants are usually chosen somewhat arbitrarily, in a manner that makes it at least plausible that they do not provide a backdoor. This post advocates the following manner to generate constants:
 
-For a prp with a small state (i.e. 128 bits), the round counter makes a great source for constants:
+For a permutation with a small state (i.e. 128 bits), the round counter makes a great source for constants:
 - The information is readily available, most likely already in a register
 - Guaranteed to be unique each round
 - No extra code or resources required to implement the evolution of the constants
@@ -36,7 +36,7 @@ For a prp with a small state (i.e. 128 bits), the round counter makes a great so
         
 While that may seem ideal, it is hard to compete on the throughput front with such a small state. A general purpose CPU really needs to utilize SIMD operations to achieve maximum throughput.
     
-For a prp that uses SIMD operations, using the round counter is slightly more complicated:
+For a permutation that uses SIMD operations, using the round counter is slightly more complicated:
 - SIMD operations quickly lose their efficiency when MOVing data frequently to/from SIMD registers
     - The need to minimize the number of MOVs is even more crucial
 - The round counter is a single word, not an SSE register
