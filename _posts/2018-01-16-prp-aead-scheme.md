@@ -45,7 +45,7 @@ Some AEAD schemes are designed to be secure even when a nonce is accidentally re
 
 The sponge construction
 -------
-The sponge duplex construction offered by the designers of keccak is an example of a permutation based AEAD scheme. A sponge construction basically uses a truncated PRP to provide confidentiality, hashing, and MAC functionality, all based off of a single PRP. This can simplify implementation complexity, which reduces the chances of something going wrong accidentally. The sponge duplex construction functions similarly to an authenticated stream cipher.
+The sponge duplex construction offered by the designers of keccak is an example of a permutation based AEAD scheme. A sponge construction basically uses a truncated PRP to provide confidentiality, hashing, and MAC functionality, all based off of a single primitive. This can simplify implementation complexity, which reduces the chances of something going wrong accidentally. The sponge duplex construction functions similarly to an authenticated stream cipher.
 
 The sponge duplex construction is not the focus of this post, I mention it as prior art to indicate that the following ideas do not stray too wildly from the already beaten path.
 
