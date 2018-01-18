@@ -10,7 +10,7 @@ If you're familiar with cryptography, you are probably already thinking "this is
 -------
 The first time I read this paper, I was stunned. No further than the top of page 2 is the following quote:
 
-    "So far we only described a symmetric scheme, but turning it into a public key encryption scheme is easy..."
+> "So far we only described a symmetric scheme, but turning it into a public key encryption scheme is easy..."
     
 I don't know about you, but I had to re-read this statement half a dozen times to make sure that it says what it looks like it says. I had to ask, what kind of secret sauce do they have that makes this unbelievably hard problem "easy"?
 
