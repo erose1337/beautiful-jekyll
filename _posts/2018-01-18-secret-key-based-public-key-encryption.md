@@ -103,5 +103,5 @@ The public key consists of encryptions of 0, as well as an encryption of 1. Encr
 
 Beware
 ------
-This post might make creating such constructions look easy - conceptually this may even be true. But the details matter greatly in regards to the security of the constructions. Things like the sizes of the numbers involved, and how many terms are used influence the security - the algebra only tells part of the story. You might be surprised at the ability of the [LLL algorithm](https://www1.lip6.fr/~joux/pages/papers/ToolBox.pdf) to pull these ciphertexts apart - I know I have been, many times!
+This post might make creating such constructions look easy - conceptually this may even be true. But the details matter greatly in regards to the security of the constructions. Things like the sizes of the numbers involved, and how many terms are used influence the security - the algebra only tells part of the story. You might be surprised at the ability of the [LLL algorithm](https://www-almasty.lip6.fr/~joux/pages/papers/ToolBox.pdf) to pull these ciphertexts apart - I know I have been, many times!
 
