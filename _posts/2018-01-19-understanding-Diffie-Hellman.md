@@ -2,6 +2,8 @@ The goal of this post is to understand the Diffie-Hellman key agreement algorith
 
 Standard disclaimer: This is not a formal research paper and should not be held to standards of rigorous unconditional correctness. 
 
+Note: To view this post the way it was intended, please bookmark then activate [MathJax](http://www.math.ucla.edu/~robjohn/math/mathjax.html) on this page.
+
 Standard Diffie-Hellman
 -----
 Classic Diffie-Hellman key agreement uses modular exponentiation to generate public keys and shared secrets. The private key is a random integer which serves as the exponent. Here is an example using small numbers.
