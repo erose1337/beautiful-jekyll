@@ -6,14 +6,14 @@ Note: To view this post the way it was intended, please bookmark then activate [
 
 Standard Diffie-Hellman
 -----
-Classic Diffie-Hellman key agreement uses modular exponentiation to generate public keys and shared secrets. The private key is a random integer which serves as the exponent. Here is an example using small numbers.
+Classic Diffie-Hellman key agreement uses modular exponentiation to generate public keys and shared secrets. The private key is a random integer which serves as the exponent. Here is an example run of the protocol:
 
-$x \leftarrow random()\\
-y \leftarrow random()\\
-pub_x \leftarrow g^x\\
-pub_y \leftarrow g^y\\
-share_x \leftarrow pub_y^x\\
-share_y \leftarrow pub_x^y\\
+$x \leftarrow random()\newline
+y \leftarrow random()\newline
+pub_x \leftarrow g^x\newline
+pub_y \leftarrow g^y\newline
+share_x \leftarrow pub_y^x\newline
+share_y \leftarrow pub_x^y\newline
 share_x = share_y$
 
 Exponentation is equivalent to repeated multiplication by $g$. The private key effectively indicates the quantity of $g$ in this sequence. If we unpackage the exponentation step and use small numbers, it is easy to see why the algorithm functions correctly:
