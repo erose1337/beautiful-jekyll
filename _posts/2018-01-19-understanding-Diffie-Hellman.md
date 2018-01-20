@@ -10,21 +10,21 @@ Classic Diffie-Hellman key agreement uses modular exponentiation to generate pub
 
 $$x \leftarrow random()\\
 y \leftarrow random()\\
-pub_x \leftarrow g^x\\
-pub_y \leftarrow g^y\\
-share_x \leftarrow pub_y^x\\
-share_y \leftarrow pub_x^y\\
-share_x = share_y$$
+pub_{x} \leftarrow g^x\\
+pub_{y} \leftarrow g^y\\
+share_{x} \leftarrow pub_{y}^x\\
+share_{y} \leftarrow pub_{x}^y\\
+share_{x} = share_{y}$$
 
 Exponentation is equivalent to repeated multiplication by $g$. The private key effectively indicates the quantity of $g$ in this sequence. If we unpackage the exponentation step and use small numbers, it is easy to see why the algorithm functions correctly:
     
-$x \leftarrow 4\\
+$$x \leftarrow 4\\
 y \leftarrow 3\\
 pub_x \leftarrow g * g * g * g\\
 pub_y \leftarrow g * g * g\\
 share_x \leftarrow pub_y * g * g * g * g \equiv (g * g * g) * (g * g * g * g)\\
 share_y \leftarrow pub_x * g * g * g \equiv (g * g * g * g) * (g * g * g)\\
-share_x = share_y = g * g * g * g * g * g * g$
+share_x = share_y = g * g * g * g * g * g * g$$
                 
 
 The group structure
@@ -37,16 +37,16 @@ It is easy to see that when you apply the function $x$ times, and then apply the
 
 An example with small numbers, generalized to use some function $f$ instead of the specific case of multiplication by $g$:
 
-$priv_1 \leftarrow 4\\
+$$priv_1 \leftarrow 4\\
 priv_2 \leftarrow 3\\
 pub_1 \leftarrow F(F(F(F(g))))\\
 pub_2 \leftarrow F(F(F(g)))\\
 share_1 \leftarrow F(F(F(F(F(F(F(g)))))))\\
-share_2 \leftarrow F(F(F(F(F(F(F(g)))))))$
+share_2 \leftarrow F(F(F(F(F(F(F(g)))))))$$
 
 Clearly, $share_1$ and $share_2$ yield the same output, as the function has been applied the same number of times. Thus correctness is guaranteed - irrespective of the actual function used to instantiate the protocol. So what if we used say, sha256 as our $f$?
 
-$f(x) = sha256(x)$
+Why it can't work
 -----
 To begin, we select an initial seed, some arbitrary bitstring labeled as $g$. For security, we require the private keys $\text{x, y}$ to be unguessable, which implies that they must be random bitstrings of size $>= 2^{128}$. This quickly presents a problem: Since the private key indicates the number of times that the function $f$ is to be applied, this implies that each party will need to invoke on the order of $2^{128}$ sha256 evaluations to generate a public key - this is clearly computationally intractable.
 
