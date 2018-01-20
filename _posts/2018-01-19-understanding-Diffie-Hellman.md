@@ -16,7 +16,7 @@ share_{x} \leftarrow pub_{y}^x\\
 share_{y} \leftarrow pub_{x}^y\\
 share_{x} = share_{y}$$
 
-Exponentation is equivalent to repeated multiplication by $g$. The private key effectively indicates the quantity of $g$ in this sequence. If we unpackage the exponentation step and use small numbers, it is easy to see why the algorithm functions correctly:
+Exponentiation is equivalent to repeated multiplication by $g$. The private key effectively indicates the quantity of $g$ in this sequence. If we unpackage the exponentation step and use small numbers, it is easy to see why the algorithm functions correctly:
     
 $$x \leftarrow 4\\
 y \leftarrow 3\\
@@ -44,13 +44,13 @@ pub_2 \leftarrow F(F(F(g)))\\
 share_1 \leftarrow F(F(F(F(F(F(F(g)))))))\\
 share_2 \leftarrow F(F(F(F(F(F(F(g)))))))$$
 
-Clearly, $share_1$ and $share_2$ yield the same output, as the function has been applied the same number of times. Thus correctness is guaranteed - irrespective of the actual function used to instantiate the protocol. So what if we used say, sha256 as our $f$?
+Clearly, $share_1$ and $share_2$ yield the same output, as the function has been applied the same number of times. Thus correctness is guaranteed - irrespective of the actual function used to instantiate the protocol. So what if we used some other function, say, sha256 as our $f$?
 
 Why it can't work
 -----
-To begin, we select an initial seed, some arbitrary bitstring labeled as $g$. For security, we require the private keys $\text{x, y}$ to be unguessable, which implies that they must be random bitstrings of size $>= 2^{128}$. This quickly presents a problem: Since the private key indicates the number of times that the function $f$ is to be applied, this implies that each party will need to invoke on the order of $2^{128}$ sha256 evaluations to generate a public key - this is clearly computationally intractable.
+To begin, we select an initial seed, some arbitrary bit string labelled as $g$. For security, we require the private keys $\text{x, y}$ to be un-guessable, which implies that they must be random bit strings of size $>= 2^{128}$. This quickly presents a problem: Since the private key indicates the number of times that the function $f$ is to be applied, this implies that each party will need to invoke on the order of $2^{128}$ sha256 evaluations to generate a public key - this is clearly computationally intractable.
 
-So while an arbitrary function can technically be used to instantiate the DH protocol, there are additional requirements the function must fulfill to ensure both computability and security.
+So while an arbitrary function can technically be used to instantiate the DH protocol, there are additional requirements the function must fulfil to ensure both computability and security.
 
 Challenges
 -----
@@ -58,17 +58,17 @@ There are three challenges that I have encountered to create a DH protocol this 
 
 The first is finding some $f$ that is difficult to recover the number of times that $f$ has been applied, given some output $F(F(F....(g)))$.
 
-- Failing to fulfill this property implies the ability of an adversary to recover the private key
+- Failing to fulfil this property implies the ability of an adversary to recover the private key
        
 The second is that the public keys must not be usable to reach the shared secret. 
 
 - I.e. if $share_{secret} = pub_1 * pub_2$, then recovery of the private key is not necessary to break the system
 
-The third requirement is that the function must offer an algebraic shortcut that allows you to compute the $N_{th}$ term without actually invoking $f$ $N$ times. This was the problem that we had with our sha256 example.
+The third requirement is that the function must offer an algebraic short cut that allows you to compute the $N_{th}$ term without actually invoking $f$ $N$ times. This was the problem that we had with our sha256 example.
 
-- Without an algebraic shortcut, computing a public key and/or the shared secret is computationally intractable. 
+- Without an algebraic short cut, computing a public key and/or the shared secret is computationally intractable. 
 
-There is a actually fourth requirement that may or may not be trivial to fulfill: Finding a generator for the group must be "easy". (thank you to crypto.stackexchange [user MarquisDeSitruce](https://crypto.stackexchange.com/users/55071/marquisdesitruce) for pointing this out)
+There is a actually fourth requirement that may or may not be trivial to fulfil: Finding a generator for the group must be "easy". (thank you to crypto.stackexchange [user MarquisDeSitruce](https://crypto.stackexchange.com/users/55071/marquisdesitruce) for pointing this out)
 
 - If there is no generator, you cannot generate group elements, and hence no key agreement can occur
 
