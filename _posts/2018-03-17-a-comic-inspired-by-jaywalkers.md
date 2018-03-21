@@ -1,1 +1,3 @@
 ![inspired by jay walkers]({{ "/img/injuredcomic.png" | https://github.com/erose1337/erose1337.github.io/blob/master/img/injuredcomic.png }})
+
+Brought to you by countless people who optimistically assume traffic will stop for them.
