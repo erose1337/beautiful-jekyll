@@ -1,5 +1,8 @@
 In this post we will understand the part of Shor's algorithm that uses classical computation. 
 
+Addendum: After reading about the algorithm again, I may have misunderstood the part about finding the order, it appears to find some $$a^x + r \equiv a^x \bmod N$ instead of a square root of $$1$$. I won't edit the post for the sake of correctness because it was more of a place to dump my thought process as opposed to a place that needs to be completely correct. But reader be warned!
+
+
 But Shor's algorithm is a *quantum* algorithm?
 -----
 Shor's algorithm consists of two parts, a classical computation part, and a quantum subroutine invoked during the classical computation part. So while it incorporates a quantum algorithm, the entire algorithm does not require quantum circuits, only part of it.
