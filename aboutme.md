@@ -37,7 +37,7 @@ As well as some subjects that I would love to develop skill with, instead of jus
 
 I am [interested in freelancing, consultation, and full-time employment](https://stackoverflow.com/users/story/3103584) for the right kind of work.
 
-You can add me on [keybase](https://stackoverflow.com/users/story/3103584) if you are so inclined.
+You can add me on [keybase](https://keybase.io/ella_rose) if you are so inclined.
 
 ### my history
 
